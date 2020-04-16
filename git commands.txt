@@ -1,0 +1,21 @@
+Git & GitHub Crash Course For Beginners-traversy media
+
+
+git init //initialize the directory
+git add . // add files to the staging area
+git rm --cached <file name>  // remove from staging area
+git status // check the staging area
+git commit // git opens the files to track changes, esc > :wq
+git commit -am "message" //all modified
+git push
+git pull
+git clone
+
+git branch <branch name> //create branch
+git checkout <branch name> //switch to branch
+git merge <branch name> // marge to master
+
+
+
+
+touch .gitignore // create  .gitignore file in the current dir
