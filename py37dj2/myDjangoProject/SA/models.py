@@ -97,7 +97,7 @@ class SA_Item(models.Model):
 	#item_style =
 	#mold_required = boolean
 	#sa_delivery_date
-	#SA_item_status
+	#SA_item_status = press, plating, coating, assembly, packing, audit-hold, hold[if plated cant hold or cancel], canceled, FGS, 
 	#mold_delivery_date
 	def __str__(self):
 		return self.item_id
