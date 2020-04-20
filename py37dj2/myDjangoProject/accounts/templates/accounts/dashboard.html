@@ -12,7 +12,8 @@
 		<div class="card card-body">
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
 			<table class="table table-sm">
-				<tr>					
+				<tr>	
+					<th></th>				
 					<th>Customer</th>
 					<th>Orders</th>
 				</tr>
@@ -33,7 +34,7 @@
 		<h5>LAST 5 ORDERS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order_page' %}">Create Order</a>
 			<table class="table table-sm">
 				<tr>
 					<th>Product</th>
@@ -43,16 +44,15 @@
 					<th>Remove</th>
 				</tr>
 
-				{% for i in orders %}
+				{% for order in orders %}
 					<tr>
-						<td>{{i.product.name}}</td>	
-						<td>{{i.date_created}}</td>	
-						<td>{{i.status}}</td>
-						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
-						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>							
+						<td>{{order.product.name}}</td>	
+						<td>{{order.date_created}}</td>	
+						<td>{{order.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_order_page' order.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order_page' order.id %}">Delete</a></td>							
 					</tr>
-				{% endfor %}
-		
+				{% endfor %}		
 			</table>
 		</div>
 	</div>

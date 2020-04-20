@@ -1,0 +1,22 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+			<p>Are you sure you want to delete "{{obj_name}}" ? </p>
+			<!-- sending from data through action since it wasnt constructed by ModelForm -->
+			<form action="{% url 'delete_order_page' obj_name.id %}" method="POST">
+				{% csrf_token %}
+				<a class="btn btn-info" href="{% url 'home' %}">Cancel</a>
+				<input class="btn btn-danger" type="submit" name="confirm">
+			</form>
+			
+		</div>
+	</div>		
+</div>
+	
+{% endblock %}

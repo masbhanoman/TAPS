@@ -1,3 +1,42 @@
+1. create an account in pythonanywhere
+2. go to the bash
+3. mkvirtualenv TAPSenv --python=/usr/bin/python3.7
+4. pip install django
+5. workon TAPSenv
+6. cd ~
+7. git clone http://github.com/masbhanoman/TAPS
+8. cd TAPS
+9. pip install -r requirements.txt
+10. python manage.py check
+11. python manage.py makemigrations
+12. python manage.py migrate
+====== build the application
+13. mkdir django_projects
+14. cd django_projects
+15. django-admin startproject mysite
+go to django_projets/mysite/settings.py
+16. ALLOWED_HOSTS = [ '*' ]
+go to the web section
+17. source code = folder link which contains manage.py
+18. working dir = folder link which contains manage.py
+
+19. in wsgi.py paste the below code
+import os
+import sys
+path = os.path.expanduser('~/django_projects/mysite')
+
+if path not in sys.path:
+	sys.path.insert(0,path)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+from django.core.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
+application = StaticFilesHandler(get_wsgi_application())
+
+
+20. /home/MASBHANOMAN/.virtualenvs/TAPSenv
+
+21. reload the wen app
+
 http://tutorial.djangogirls.org/en/deploy/
 after initial deployment, open dashboard> bash and just do
 cd <app_directory>.pythonanywhere.com
