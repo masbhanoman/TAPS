@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'SA',
     'accounts',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
